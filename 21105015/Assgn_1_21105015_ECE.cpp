@@ -103,6 +103,45 @@ int main(){
     peek(head);
 }
 
+/*
+OUTPUT:
+Doubly Linked list with family members without age sorting:
+
+Name:GRANDFATHER
+ Age:80
+Name:FATHER
+ Age:50
+Name:MOTHER
+ Age:47
+Name:DAUGHTER
+ Age:22
+Name:SON
+ Age:19
+
+Name:SON
+ Age:19
+Name:DAUGHTER
+ Age:22
+Name:MOTHER
+ Age:47
+Name:FATHER
+ Age:50
+Name:GRANDFATHER
+ Age:80
+
+Doubly Linked List after the changes made:
+Name:GRANDFATHER
+ Age:80
+Name:FATHER
+ Age:50
+Name:MOTHER
+ Age:47
+Name:SON
+ Age:19
+
+
+[Done] exited with code=0 in 0.692 seconds*/
+
 
 /*The LL can be used to link the family members doubly-linked list based on their relationship if the list is being sorted in decreasing order on the basis 
 of the age of the member every time a new member  is added to the list because then when the senior most person for example the grandfather will be added

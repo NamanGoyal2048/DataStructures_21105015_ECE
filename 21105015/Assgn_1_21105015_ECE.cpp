@@ -18,7 +18,7 @@ class Family{
 };
 
 
-void append(Family* &head,string name,int age){
+void Add_member(Family* &head,string name,int age){
     Family*temp=head;
     Family*new_node=new Family(name,age);
     if(temp==NULL){
@@ -32,7 +32,7 @@ void append(Family* &head,string name,int age){
 }
 
 
-void insert_at_head(Family*&head,string name,int age){
+void insert_head(Family*&head,string name,int age){
      Family*new_node=new Family(name,age);
      new_node->next=head;
      head->prev=new_node;
@@ -50,7 +50,7 @@ void peek(Family*head){
 }
 
 
-void display_end(Family*head){
+void peek_end(Family*head){
     Family*temp=head;
     while(temp->next!=NULL){temp=temp->next;}
     while(temp!=NULL){
@@ -87,17 +87,17 @@ void pop(Family*&head){
 
 int main(){
     Family*head=NULL;
-    append(head,"MEMBER A",80);
-    append(head,"MEMBER B",50);
-    append(head,"MEMBER C",47);
-    append(head,"MEMBER D",22);
-    append(head,"MEMBER E",19);
+    Add_member(head,"GRANDFATHER",80);
+    Add_member(head,"FATHER",50);
+    Add_member(head,"MOTHER",47);
+    Add_member(head,"DAUGHTER",22);
+    Add_member(head,"SON",19);
     cout<<endl;
 
     cout<<"Doubly Linked list with family members without age sorting:"<<endl;
     cout<<endl;
     peek(head);
-    display_end(head);
+    peek_end(head);
     delete_at_i(head,3);
     cout<<"Doubly Linked List after the changes made:"<<endl;
     peek(head);

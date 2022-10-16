@@ -1,7 +1,8 @@
-// SIZE UNKNOWN DATA STRUCTURES ASSIGNMENT 3 
-// NAMAN GOYAL
+// UNKNOWN SIZE OF THE ARRAY TO PERFORM THE BINARY SEARCH OF THE ARRAY
+//  NAMAN GOYAL
 // 21105015
 // ECE
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -13,12 +14,13 @@ using namespace std;
 
 // LINEAR SEARCH
 
-// in linear search we are traversing the array , and not keeping any limitation on the the traversing index(i).
-int linear_search(int arr[], int x)
+// in linear search keep transversing the array until we are not able to find the element of the array
+int linear_search(int arr[], int element)
 {
-    for (int i = 0;; i++) // no condition to stop the loop until the element not found.
+    for (int i = 0;; i++) 
+    // No condition on terminating the loop of linear search
     {
-        if (arr[i] == x)
+        if (arr[i] == element)
         {
             return i;
         }
@@ -27,19 +29,19 @@ int linear_search(int arr[], int x)
 
 // BINARY SEARCH
 
-//this function is a simple binary search functio where left and right indexes are being provided.
+//this function is a simple binary search function where left and right index are being provided.
 
-int binary_search_code(int arr[],int l,int r,int x)
+int binary_search_code(int arr[],int l,int r,int element)
 {
     int mid = (l+r) / 2;
     while(l<=r)
     {
-        if(arr[mid]>x)
+        if(arr[mid]>element)
         {
             r = mid - 1;
             mid = (l+r) / 2;
         }
-        else if(arr[mid]<x)
+        else if(arr[mid]<element)
         {
             l = mid+1;
             mid = (l+r) / 2;
@@ -52,20 +54,20 @@ int binary_search_code(int arr[],int l,int r,int x)
 
 }
 
-//we try to reduce our work done to O(log(N)) time complexity, by increasing the range of our search exponentitaly by 2.
+//we try to reduce our work done to O(log(N)) time complexity, by increasing the range of our search exponentitaly by 2 every time.
 
-int binary_search(int arr[], int x)
+int binary_search(int arr[], int element)
 {
     int low = 0;
     int high = 1;
 
-    while (arr[high] < x)//if element to be found is still high the value at high index .
+    while (arr[high] < element) //if element to be found is still high the value at high index .
     {
-        low = high;//update the low value
-        high = 2 * high;//double the range of search, when the condition is satisfies then we call BINARY SEARCH on that range(low to high).
+        low = high; //update the low value
+        high = 2 * high; //double the range of search exponentially , when the condition is satisfies then we call BINARY SEARCH on that range(low to high).
     }
 
-    return binary_search_code(arr,low,high,x);
+    return binary_search_code(arr,low,high,element);
 }
 
 
@@ -84,12 +86,12 @@ int main()
         cin >> arr[i];
     }
 
-    int x;
+    int element;
     cout << "ENTER THE ELEMENT TO SEARCH FOR : ";
-    cin >> x;
+    cin >> element;
     cout << endl;
 
-    cout << "Index of " << x << " from LINEAR SEARCH is : " << linear_search(arr, x) << endl;
-    cout << "Index of " << x << " from BINARY SEARCH is : " << binary_search(arr, x) << endl;
+    cout << "Index of " << element << " from LINEAR SEARCH is : " << linear_search(arr, element) << endl;
+    cout << "Index of " << element << " from BINARY SEARCH is : " << binary_search(arr, element) << endl;
     delete[] arr;
 }
